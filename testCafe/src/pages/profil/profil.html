@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-navbar color="nav">
+  <ion-navbar color="nav" display="inline">
     <ion-title>
-      Profil
+      SEECRETSPOT
     </ion-title>
+   <!--button end aligne le bouton sur la droite on met un bouton pour -->
+    <!--on est en js donc click fonctionne !-->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+
+
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
