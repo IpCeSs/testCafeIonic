@@ -1,8 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import {AngularFirestoreModule} from "angularfire2/firestore";
 
 import { ProfilPage } from '../pages/profil/profil';
 import { ContactPage } from '../pages/contact/contact';
@@ -11,9 +15,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { SearchPage} from "../pages/search/search";
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
+import { ProviderItemProvider } from '../providers/provider-item/provider-item';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,9 @@ import { AuthProvider } from '../providers/auth/auth';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase, 'testCafe'),
+    AngularFirestoreModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -44,7 +52,8 @@ import { AuthProvider } from '../providers/auth/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    ProviderItemProvider
   ]
 })
 export class AppModule {}

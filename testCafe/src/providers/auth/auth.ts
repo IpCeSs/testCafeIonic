@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase';
-import {Http} from "@angular/http";
+
 
 /*
   Generated class for the AuthProvider provider.
@@ -15,7 +15,7 @@ import {Http} from "@angular/http";
 export class AuthProvider {
   public user: Observable<any>;
 
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // si l'user est signed in
