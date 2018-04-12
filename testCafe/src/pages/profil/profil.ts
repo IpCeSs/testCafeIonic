@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { User} from "../../app/models/User";
+import { AngularFirestoreCollection} from "angularfire2/firestore";
+import { ProviderItemProvider } from "../../providers/provider-item/provider-item";
 
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -35,5 +38,8 @@ export class ProfilPage {
         console.dir(error);
       });
   }
+
+
+
 
 }

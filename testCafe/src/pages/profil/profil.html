@@ -16,13 +16,15 @@
 
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
+
+<ion-content padding >
+
+  <ion-list *ngIf="users.id == currentUser.uid">
     <ion-item>
       <ion-avatar item-start>
-        <img src="https://firebasestorage.googleapis.com/v0/b/cafemobile-862b0.appspot.com/o/avatar%2Fjaune.png?alt=media&token=9cf0aba4-75a2-4043-8255-0f6d837d4eeb">
+        <img src="{{user.avatar}}">
       </ion-avatar>
-      <h2>Ip Cess</h2>
+      <h2>{{user.nom}} {{user.prenom}}</h2>
 
     </ion-item>
   </ion-list>
@@ -30,14 +32,15 @@
     <ion-list-header>
       Ville
     </ion-list-header>
-    <ion-item>Annecy</ion-item>
+    <ion-item>{{user.ville}}</ion-item>
 
   </ion-list>
   <ion-list>
     <ion-list-header>
       Age
     </ion-list-header>
-    <ion-item>31</ion-item>
+    <ion-item>{{user.age}}</ion-item>
 
   </ion-list>
+
 </ion-content>

@@ -20,6 +20,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProviderItemProvider } from '../providers/provider-item/provider-item';
+import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from "@angular/core";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProviderItemProvider } from '../providers/provider-item/provider-item';
     HomePage,
     TabsPage,
     LoginPage,
-    SearchPage
+    SearchPage,
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,10 @@ import { ProviderItemProvider } from '../providers/provider-item/provider-item';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     ProviderItemProvider
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ]
 })
 export class AppModule {}
